@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "EduManager AI - Full Stack School Management System (MCA Project)",
   "scripts": {
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ..",
+    "dev": "concurrently --kill-others-on-fail --prefix \"[{name}]\" --names \"backend,frontend\" --prefix-colors \"cyan,magenta\" \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "start": "cd backend && npm start",
-    "build": "cd frontend && npm run build"
+    "build": "cd frontend && npm run build",
+    "db:setup": "cd backend && node config/setupDatabase.js && cd ..",
+    "postinstall": "echo '\\n✅ Root dependencies installed. Run: cd backend && npm install && cd ../frontend && npm install'"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
   },
+  "keywords": ["school", "management", "react", "nodejs", "mysql", "mca-project"],
   "author": "MCA Student",
-  "license": "ISC"
+  "license": "MIT"
 }

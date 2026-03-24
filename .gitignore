@@ -1,27 +1,54 @@
-# Dependencies
+# ── Dependencies ──────────────────────────────────────────────
 node_modules/
 */node_modules/
+**/node_modules/
 
-# Environment
+# ── Environment (NEVER commit these) ─────────────────────────
 .env
 backend/.env
+*.env.local
+*.env.*.local
 
-# Build output
+# ── Build output ──────────────────────────────────────────────
 frontend/build/
 frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
 
-# Logs
-backend/logs/
-*.log
+# ── Logs ──────────────────────────────────────────────────────
+backend/logs/*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Uploads
+# ── Uploads ───────────────────────────────────────────────────
 backend/uploads/*
 !backend/uploads/.gitkeep
 
-# OS
+# ── OS files ──────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Editor
-.vscode/
+# ── Editor ────────────────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
 .idea/
+*.swp
+*.swo
+*~
+
+# ── Testing ───────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Misc ──────────────────────────────────────────────────────
+*.zip
+*.tar.gz
